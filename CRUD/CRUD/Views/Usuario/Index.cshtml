@@ -1,0 +1,127 @@
+﻿<head>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" stylesheet" />
+    <script src="~/Scripts/usuario.js"></script>
+</head>
+
+<div class="table-wrapper">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Gerenciando <b>Usuarios</b></h2>
+            </div>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="material-icons">&#xE147;</i><span>Novo Usuario</span></button>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="UsuarioId"></label>
+                        <input type="text" class="form-control" id="UsuarioID" hidden />
+                    </div>
+                    <div class="form-group">
+                        <label for="Nome">Nome</label>
+                        <input type="text" class="form-control" id="Nome" placeholder="Nome" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="text" class="form-control" id="Email" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Senha">Senha</label>
+                        <input type="text" class="form-control" id="Senha" placeholder="Senha" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" data-target="#myModalSucess" data-toggle="modal" onclick="return Add();">Adicionar</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" data-target="#myModalSucessUpdate" data-toggle="modal" onclick="Update();">Atualizar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+	</div>
+</div>
+
+<!-- Sucess Create-->
+<div id="myModalSucess" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#xE876;</i>
+                </div>
+                <h4 class="modal-title">Sucesso!!</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Suas informações foram cadastradas!!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sucess Update -->
+<div id="myModalSucessUpdate" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#xE876;</i>
+                </div>
+                <h4 class="modal-title">Atualizado!!</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Suas informações foram salvas!!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal HTML -->
+<div id="deleteModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Deletar Usuario</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Tem certeza de que deseja excluir esses registros?
+                </p>
+                <p class="text-warning"><small>Essa ação não pode ser desfeita.</small></p>
+            </div>
+            <div class="modal-footer">
+                <span id='deleteButton'></span>
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+            </div>
+        </div>
+    </div>
+</div>
